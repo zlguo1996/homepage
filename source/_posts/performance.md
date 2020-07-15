@@ -47,15 +47,15 @@ We want to render participants list into UI. If we change only one participants'
 
 1. If we use props to pass the change from root node, a lot of computation time would be wasted on reconciling and rendering the data that did not change:
 
-   ![Render Performance 3](RenderPerformance3.png)
+   {% asset_img RenderPerformance3.png Render Performance 3 %}
 
 2. To avoid re-rendering on sibling nodes (yellow ones on the upper image), we can use `useMemo` hook to remember the participant node. Only re-render it  when the id of participant have changed (add / delete).
 
-   ![Render Performance 2](RenderPerformance2.png)
+    {% asset_img RenderPerformance2.png Render Performance 2 %}
 
 3. If we connect every participant directly to the store (connect to MobX using `useContext` hook), parent nodes would not be reconciliated.
 
-   ![Render Performance 1](RenderPerformance1.png)
+   {% asset_img RenderPerformance1.png Render Performance 1 %}
 
 ## 2. Batch state updates
 
