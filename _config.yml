@@ -99,7 +99,7 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  type: git
   repo: https://github.com/zlguo1996/zlguo1996.github.io
   branch: master
   ignore_hidden: false
