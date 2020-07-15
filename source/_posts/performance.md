@@ -104,6 +104,3 @@ Since the class name would not change. React would not re-render those `Particip
 
 - [Dragging React Performance Forward](https://medium.com/@alexandereardon/dragging-react-performance-forward-688b30d40a33)
 
-###
-
-
