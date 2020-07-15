@@ -41,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -103,3 +103,9 @@ deploy:
   repo: https://github.com/zlguo1996/zlguo1996.github.io
   branch: master
   ignore_hidden: false
+
+# override theme config
+theme_config:
+  math:
+    mathjax:
+      enable: true
