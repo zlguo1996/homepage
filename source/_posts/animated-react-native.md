@@ -1,7 +1,7 @@
 ---
 title: Animated in React Native
 date: 2020-10-18 21:57:39
-tags:
+categories:
 - code
 - frontend
 - native
