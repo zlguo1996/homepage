@@ -4,7 +4,7 @@ date: 2020-10-18 21:57:39
 categories:
 - code
 - frontend
-- native
+- react native
 ---
 
 ## Motivation
