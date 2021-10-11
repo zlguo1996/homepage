@@ -13,7 +13,7 @@ categories:
 
 ## 手势识别能力
 
-对于滑动手势的识别，有下面三种能力层级：
+对于滑动手势的识别，有下面三种能力层级（具体例子可见`参考 - 3`的视频）：
 
 1. 滑动中识别（*abbrev*. 能力1）
 2. 滑动开始时识别（*abbrev*. 能力2）
@@ -144,6 +144,9 @@ categories:
 ```
 
 >  @gorhom/bottom-sheet内部依赖了react-native-gesture-handler和react-native-reanimated，使用时切忌遗漏安装对应的客户端包
+>
+
+注：在安卓中，react-native包导出的Touchable和ScrollView无法在BottomSheet中正常响应事件，具体解决方案可见[官方文档的troubleshooting部分](https://gorhom.github.io/react-native-bottom-sheet/v2/troubleshooting)。
 
 ## 总结
 
@@ -335,3 +338,15 @@ function getVerticalPanValue({ upValue, downValue, elseValue }, gesture) {
     return elseValue;
 }
 ```
+
+## 3. 交互视频
+
+1. 能力1，滑动中识别（理想情况，用户只需交互一次）
+
+   <video src="https://vodkgeyttp9c.vod.126.net/vodkgeyttp8/8vdQyfjG_3902554063_uhd.mp4?ts=1949278835&rid=7859AE92117216E8AD0E345795682128&rl=0&rs=cWazXiGUycMdyAhsKhOXEkfeKHPGccOq&sign=add655382502b1a3a778fbade5022bf0&coverId=cxnrl57ADPi6eE9Tj47Y6w==/109951166509772321&infoId=1357303" style="max-width:300px;" />
+
+2. 能力2，滑动开始时识别（用户需要拖动两次，第一次拖动内部列表，第二次拖动外部抽屉）
+   
+   <video src="https://vodkgeyttp9c.vod.126.net/vodkgeyttp8/79544nqW_3902564433_uhd.mp4?ts=1949279212&rid=7859AE92117216E8AD0E345795682128&rl=0&rs=aDZoqyiQtMxNyNsLqRJRjZoOJFXSQDkf&sign=a3f34774922993db2418e88d86434ce7&coverId=UX3CLuL7ikvtuQkTdxsZRw==/109951166509784344&infoId=1354343" style="max-width:300px;" />
+   
+
