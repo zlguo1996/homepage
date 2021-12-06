@@ -45,6 +45,8 @@ React 18 的核心新特性基本可以归为下面两类：
 ![image-20211204182738628.png](https://s2.loli.net/2021/12/05/1LytgYaSeqXpTIZ.png)
 
 分片能力在react 16引入的Fiber Reconciler中就已实现。在此之前react使用的是Stack Reconciler，它使用递归的方式对整棵树进行更新。它的问题在于在触发一次更新后，知道这次更新任务的完成，JS线程会一直被占用而无法执行其他更加高优的任务（如：响应用户交互)，造成了用户感知卡顿的问题。而Fiber Reconciler使用while loop拆解递归，将最小执行单元由一整棵树结构的更新降到了一个节点的更新；这就允许了更新被打断，为主线程提供了更多的调度能力。在新的调度能力的支持下，就可以完成高优更新优先渲染、中断过期更新等能力，更好地分配和节省计算资源。
+  
+> 如果你对react的实现细节感兴趣，可以阅读一下[codebase overview](https://reactjs.org/docs/codebase-overview.html)
 
 ##### 优先级
 
