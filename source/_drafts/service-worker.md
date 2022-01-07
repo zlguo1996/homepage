@@ -130,6 +130,17 @@ self.addEventListener('activate', function(event) {
 });
 ```
 
+### 缓存管理
+
+通常，我们会配合CacheStorage API对请求进行缓存。但这并不意味着不再需要在服务器配置`Cache-Control`头了，我们仍然可以：
+
+- 使用`Cache-Control: no-cache`来配置无版本的URL
+- 使用`Cache-Control: max-age=31536000`来配置包含版本信息的URL，如哈希
+
+而且同时使用`Cache-Control`可以保证缓存仍然能够在不支持Service worker的浏览器上被使用。
+
+当Service worker更新缓存的时候，仍然会检查HTTP Cache的入口，如果有可用缓存，将会使用缓存来更新CacheStorage。
+
 ## 应用
 
 ### 请求缓存
@@ -166,6 +177,10 @@ self.addEventListener('activate', function(event) {
 
 ![](https://developers.google.com/web/tools/workbox/images/modules/workbox-strategies/cache-only.png)
 
+#### 工具库
+
+[workbox](https://developers.google.com/web/tools/workbox/guides/get-started)提供了一组库，用于帮助实现和管理service worker，以及使用CacheStorage API管理缓存。
+
 ## 相关概念
 
 ### HTTP Cache
@@ -180,6 +195,24 @@ self.addEventListener('activate', function(event) {
 
 ![](https://web-dev.imgix.net/image/admin/htXr84PI8YR0lhgLPiqZ.png?auto=format&w=650)
 
+## 实践
+
+尝试在微前端应用中避免重复的请求
+
+### 环境准备
+
+- 打包工具：webpack可以使用serviceworker-webpack-plugin插件打包代码
+
+- 库：可以使用workbox简化service worker代码
+
+### 调试
+
+更新Service Worker：刷新页面不会更新Service Worker，需要关闭使用该Service Worker标签后重新打开。
+
+> 原因在于浏览器导航的工作原理。当您导航时，在收到响应标头前，当前页面不会消失，即使此响应具有一个 `Content-Disposition` 标头，当前页面也不会消失。由于存在这种重叠情况，在刷新时当前 Service Worker 始终会控制一个客户端。[参考](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle?hl=zh-cn#waiting)
+
+或者可以使用开发者工具：Application - Service Workers。通过Stop Waiting新的worker来激活更新后的service worker。
+
 ## References
 
 - [Service Worker: 简介](https://developers.google.com/web/fundamentals/primers/service-workers)
@@ -188,3 +221,4 @@ self.addEventListener('activate', function(event) {
 - [推送通知 Web Push Notifications: Timely, Relevant, and Precise](https://developers.google.com/web/updates/2015/03/push-notifications-on-the-open-web)
 
 - [Prevent unnecessary network requests with the HTTP Cache](https://web.dev/http-cache/)
+- [Service workers and the Cache Storage API](https://web.dev/service-workers-cache-storage/)
