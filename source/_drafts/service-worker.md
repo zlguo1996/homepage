@@ -203,7 +203,10 @@ self.addEventListener('activate', function(event) {
 
 - 打包工具：webpack可以使用serviceworker-webpack-plugin插件打包代码
 
+  > 注意：不要忘记在plugin的options中传入publicPath
+
 - 库：可以使用workbox简化service worker代码
+- HTTPS：在开发过程中，可以通过 `localhost` 使用 Service Worker，但如果要在网站上部署 Service Worker，则需要在服务器上设置 HTTPS
 
 ### 调试
 
