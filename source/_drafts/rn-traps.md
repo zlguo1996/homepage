@@ -24,5 +24,6 @@ tags:
         }, 0);
     }, []);
     ```
-
+  
+- 为正常在安卓上使用`measureInWindow`和`measure`时需要设置View的collapsable属性为false，否则会返回undefined。详见：https://fantashit.com/measuring-a-view-without-an-onlayout-returns-an-empty-set-of-coordinates/
     
