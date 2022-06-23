@@ -30,3 +30,6 @@ tags:
 - rn中使用transform可能会导致像素级的视觉问题（如：圆不圆，因为单个像素渲染的误差），不论png还是svg均无法解决问题。例：注意圆的左右边缘
  ![](https://p5.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/13580427389/5a65/d7f6/6077/13084c8984bdc6bceec37f4e3af2d61d.png)
 
+ - rn输入，键盘上部的完成按钮： https://stackoverflow.com/questions/49249862/react-native-done-button-above-keyboard
+   - `import { KeyboardAccessoryNavigation } from 'react-native-keyboard-accessory'` 放置在顶层View的最底部
+
