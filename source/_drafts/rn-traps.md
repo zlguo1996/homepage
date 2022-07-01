@@ -33,3 +33,6 @@ tags:
  - rn输入，键盘上部的完成按钮： https://stackoverflow.com/questions/49249862/react-native-done-button-above-keyboard
    - `import { KeyboardAccessoryNavigation } from 'react-native-keyboard-accessory'` 放置在顶层View的最底部
 
+    
+- rn Text 多语言混排可能会出现文字被竖直截断的情况，如：᭓抖音热歌。对外文文字进行过滤：`str.replace(/([\u1000-\u109F]+)|([\u1B00-\u1B7F])/g, '')`
+
